@@ -54,7 +54,7 @@ class Grid extends PureComponent {
   }
 
   gameHandler() {
-    if (getRandomByRatio([{ v: true, r: 0.1 }, { v: false, r: 0.9 }])) {
+    if (getRandomByRatio([{ v: true, r: 0.3 }, { v: false, r: 0.7 }])) {
       const _pos = {
         x: Math.floor(Math.random() * (this.props.rows + 1)),
         y: Math.floor(Math.random() * (this.props.columns + 1))
@@ -76,11 +76,11 @@ class Grid extends PureComponent {
       } else {
         this.props.onUpdate({ ...head, [_axe]: head[_axe] + _direction }, hasEat);
       }
-      if (INTERVAL > 100) {
-        if (this.props.score > 0 && this.props.score % 100 === 0) {
-          INTERVAL = INTERVAL - 50 >= 100 ? INTERVAL - 50 : 100;
+      if (this.props.interval > 100) {
+        console.log(this.props.interval);
+        if (INTERVAL !== this.props.interval) {
+          INTERVAL = this.props.interval;
           clearInterval(GAME);
-          console.log(INTERVAL);
           GAME = setInterval(this.gameHandler.bind(this), INTERVAL)
         }
 
@@ -102,7 +102,11 @@ class Grid extends PureComponent {
               </div>
             ))
         }
-        <pre>{this.props.score}</pre>
+        <ul>
+          <li>Score : {this.props.score}</li>
+          <li>Items eaten : {this.props.itemsEaten}</li>
+          <li>Difficulty : {this.props.difficulty}</li>
+        </ul>
       </div>
     )
   }

@@ -30,6 +30,9 @@ const initial = {
   lastDirection: DOWN,
   direction: [DOWN],
   score: 0,
+  itemsEaten: 0,
+  difficulty: 0,
+  interval: 1000,
   snake: [
     {
       x: 3,
@@ -94,10 +97,14 @@ export default function reducer(state = initial, action = {}) {
         item: item
       }
     case EAT_ITEM:
+      const newScore = state.score + action.value; 
       return {
         ...state,
         snake: state.snake.concat(action.snake),
-        score: state.score + action.value,
+        score: newScore,
+        itemsEaten: state.itemsEaten + 1,
+        difficulty: state.difficulty + (newScore >= 100 + state.difficulty * 100 ? 1 : 0),
+        interval: (state.interval - 50 >= 100 ? state.interval - 50 : 100),
         item: state.item.filter((i) => !(i.x === action.item.x && i.y === action.item.y))
       }
     default:

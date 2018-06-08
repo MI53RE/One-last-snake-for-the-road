@@ -10,6 +10,9 @@ const mapStateToProps = (state) => ({
   columns: state.options.columns,
   snake: state.inputs.snake,
   score: state.inputs.score,
+  itemsEaten: state.inputs.itemsEaten,
+  difficulty: state.inputs.difficulty,
+  interval: state.inputs.interval,
   item: state.inputs.item,
   lastKeyDown: state.inputs.lastKeyDown,
 })
