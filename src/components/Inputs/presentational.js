@@ -8,11 +8,11 @@ const stylize = (props, state) => ({
   }
 })
 
-class Grid extends PureComponent {
+class Input extends PureComponent {
   render() {
     const styles = stylize(this.props, this.state)
     const { rows, columns } = this.props
-    console.log(this.props);
+
     return (
       <div>
         {
@@ -20,33 +20,18 @@ class Grid extends PureComponent {
             .fill(true)
             .map((foo, x) => (
               <div key={`rows-${x}`} style={styles.row}>
-                {Array(columns).fill(true).map((bar, y) => <Cell key={`cell-${x}-${y}`} x={x} y={y} snake={this.props.snake}/>)}
+                {Array(columns).fill(true).map((bar, y) => <Cell key={`cell-${x}-${y}`} />)}
               </div>
             ))
         }
       </div>
     )
   }
-
-
-  isSnake = (props) => {
-    for (let _i = 0; _i < props.snake.length; _i++) {
-      if (props.y === props.snake[_i].y
-        && props.x === props.snake[_i].x) {
-        if (_i === props.snake.length - 1) {
-          return stylize(props).snakeHead
-        }
-        return stylize(props).snake
-      } else {
-        return stylize(props).cell
-      }
-    }
-  }
 }
 
-Grid.propTypes = {
+Input.propTypes = {
   rows: PropTypes.number.isRequired,
   columns: PropTypes.number.isRequired,
 }
 
-export default Grid
+export default Input
