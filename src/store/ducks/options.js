@@ -1,5 +1,5 @@
 // Actions
-export const UPDATE_OPTIONS = 'snakator/OPTIONS/UPDATE_OPTIONS'
+export const UPDATE_OPTIONS = 'OneLastSnakeForTheRoad/OPTIONS/UPDATE_OPTIONS'
 
 // Reducer
 const initial = {
