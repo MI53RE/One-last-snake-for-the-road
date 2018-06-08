@@ -1,0 +1,34 @@
+{
+  "name": "snakator",
+  "version": "1.0.0",
+  "description": "🐍✂️ Snakator - A react based classic game 'Snake'",
+  "main": "index.js",
+  "author": "me@thcol.in",
+  "license": "ISC",
+  "scripts": {
+    "dev": "npx webpack-dev-server --mode=development",
+    "prod": "npx webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dat-gui": "^1.0.2",
+    "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
